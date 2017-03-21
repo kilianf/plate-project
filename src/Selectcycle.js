@@ -51,20 +51,22 @@ class Selectcycle extends Component {
 
   render() {
     return (
-      <div className="cycleSelect">
+      <div className="cycleSelect pure-g">
+        <div className="pure-u-1 pure-u-md-1-4">
           <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
             <SelectField
               floatingLabelText="Select cycle"
               value={this.state.value}
               onChange={ this.handleChange }
-
+              style = {{width: '100%'}}
             >
-              <MenuItem value={1} primaryText="1" />
-              <MenuItem value={2} primaryText="2" />
-              <MenuItem value={3} primaryText="3" />
-              <MenuItem value={4} primaryText="4" />
+              <MenuItem value={1} primaryText="Month 1" />
+              <MenuItem value={2} primaryText="Month 2" />
+              <MenuItem value={3} primaryText="Month 3" />
+              <MenuItem value={4} primaryText="Month 4" />
             </SelectField>
-          </MuiThemeProvider>          
+          </MuiThemeProvider>
+        </div>          
       </div>
     );
   }

@@ -17,7 +17,8 @@ class Home extends Component {
       hasProgram: false,
       loggedin: false,
       uid: '',
-      currentstats: {}
+      currentstats: {},
+      flash: false
     }
     this.programs = [
       "5x3x1",
@@ -54,7 +55,10 @@ class Home extends Component {
   
   setCurrentNumbers = (value) => {
     {/* Tell state user has selected program // Passed as prop to  Selectprogram component */}
-    this.setState({ currentstats: value })
+
+    this.setState({ currentstats: value, flash: true }, () => {
+      setTimeout(() => this.setState({ flash: false  }), 200)
+    })
   }
 
 
@@ -83,14 +87,16 @@ class Home extends Component {
   }
 
   render() {
-    const isActive = this.state.menuOpen ? 'active' : '';
+    const isActive = this.state.menuOpen ? 'activeMenu' : '';
+
+    {/* Flashes a brief text update */}
+    const flashText = this.state.flash ? 'activeColor' : '';
 
     return (
-      <div className="App">
+      <div className={`${flashText} ${isActive} App`}>
         <div className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
         </div>
-        <div className={`${isActive} sidebarMenu`}>
+        <div className="sidebarMenu">
             
             {/* Toggle sidebar */}
 

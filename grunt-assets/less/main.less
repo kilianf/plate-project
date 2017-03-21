@@ -78,12 +78,10 @@ body, html {
 	background-color: @lightgray;
 	.translateX(100%);
 	.transition(all .2s linear);
-	&.active {
+	.activeMenu & {
 		.translateX(0);
 	}
 }
-
-
 
 .xMark {
 	font-family: @headline;
@@ -127,17 +125,51 @@ thead > tr {
 		color: @gold !important;
 	}
 }
-
+.App {
+	td {
+		.transition(all .2 linear);
+		.transform-origin(25% 50%);
+	}
+	&.activeColor td {
+		color: @gold;
+		.scale(1.5);
+	}
+}
+ .activeMenu {
+	& > .A {
+		.translateX(-30px);
+	}
+}
 .A {
 	padding: 10px 80px 50px 80px;
+	.transition(transform .2 linear);
 	h2 {
 		text-align: center;
+		font-size: 4em;
+		margin-bottom: 0;
+		position: relative;
+		&:before,
+		&:after {
+			content: '';
+			display: block;
+			width: 10%;
+			height: 1px;
+			background-color: white;
+			position: absolute;
+			top: 1px;
+			.translate(50%);
+			right: 50%;
+		}
+		&:after {
+			top: auto;
+			bottom: -1px;
+		}
 	}
 }
 
 .cycleSelect {
 	& > div {
-		margin: 0 auto;
+		margin: 0 auto  40px auto;
 	}
 }
 

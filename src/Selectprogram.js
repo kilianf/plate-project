@@ -8,7 +8,9 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
+let goldTheme = Object.create(darkBaseTheme);
 
+goldTheme.palette.accent1Color = "#a18552"
 
 {/*
 
@@ -53,7 +55,7 @@ class Selectprogram extends Component {
         <div className="App-header">
           <h2>Select your program</h2>
 
-          <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+          <MuiThemeProvider muiTheme={getMuiTheme(goldTheme)}>
             <SelectField
               floatingLabelText="Select your program"
               value={this.state.value}

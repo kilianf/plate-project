@@ -133,7 +133,7 @@ html {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-.sidebarMenu.active {
+.activeMenu .sidebarMenu {
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -190,14 +190,67 @@ thead > tr th {
   font-family: "brothers" !important;
   color: #a18552 !important;
 }
+.App td {
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  -webkit-transform-origin: 25% 50%;
+  -moz-transform-origin: 25% 50%;
+  -ms-transform-origin: 25% 50%;
+  -o-transform-origin: 25% 50%;
+  transform-origin: 25% 50%;
+}
+.App.activeColor td {
+  color: #a18552;
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform: scale(1.5);
+}
+.activeMenu > .A {
+  -webkit-transform: translateX(-30px);
+  -moz-transform: translateX(-30px);
+  -ms-transform: translateX(-30px);
+  -o-transform: translateX(-30px);
+  transform: translateX(-30px);
+}
 .A {
   padding: 10px 80px 50px 80px;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  -moz-transition: -moz-transform 0.2s linear;
+  -o-transition: -o-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear,-moz-transform 0.2s linear,-o-transform 0.2s linear,transform 0.2s linear;
 }
 .A h2 {
   text-align: center;
+  font-size: 4em;
+  margin-bottom: 0;
+  position: relative;
+}
+.A h2:before,
+.A h2:after {
+  content: '';
+  display: block;
+  width: 10%;
+  height: 1px;
+  background-color: white;
+  position: absolute;
+  top: 1px;
+  -webkit-transform: translate(50%);
+  -moz-transform: translate(50%);
+  -ms-transform: translate(50%);
+  -o-transform: translate(50%);
+  transform: translate(50%);
+  right: 50%;
+}
+.A h2:after {
+  top: auto;
+  bottom: -1px;
 }
 .cycleSelect > div {
-  margin: 0 auto;
+  margin: 0 auto  40px auto;
 }
 .modal {
   position: absolute;

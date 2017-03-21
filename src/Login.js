@@ -49,7 +49,9 @@ class Login extends Component {
   _clicker(){
     const email = this.state.email;
     const password = this.state.password;
-    this.auth.signInWithEmailAndPassword(email,password);
+    this.auth.signInWithEmailAndPassword(email,password).catch(function(error){
+      console.log(error)
+    });
   }
 
   _logOut(){
