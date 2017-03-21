@@ -1,0 +1,85 @@
+
+#mobile-sidebar-links {
+      margin: -20px 0 20px 0;
+}
+
+button#campaign-expand {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: @gold;
+  .translate(-110px, 10px);
+  &:active,
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+    
+#ham{
+  width: 25px;
+  height: 25px;
+  position: relative;
+  float:left;
+  display: inline-block;
+  margin:4px 4px -2px 0;
+  .rotate(0deg);
+  .transition(.5s ease-in-out);
+  cursor: pointer;
+  span {
+    display: inline;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #85754d;
+    border-radius: 1px;
+    opacity: 1;
+    left:0;
+    .rotate(0deg);
+    .transition(.4s ease-in-out);
+  }
+  span:nth-child(1) {
+    top: 0px;
+  }
+  span:nth-child(2),
+  span:nth-child(3) {
+    top: 7px;
+  }
+}
+
+
+
+#ham span:nth-child(4) {
+  top: 14px;
+}
+
+.active {
+  #ham span:nth-child(1) {
+    top: 7px;
+    width: 0%;
+    left: 50%;
+  }
+
+  #ham span:nth-child(2) {
+    .rotate(45deg);
+  }
+
+  #ham span:nth-child(3) {
+    .rotate(-45deg);
+  }
+
+  #ham span:nth-child(4) {
+    top: 7px;
+    width: 0%;
+    left: 50%;
+  }
+}
+
+
+
+
+
+
+
+
+    

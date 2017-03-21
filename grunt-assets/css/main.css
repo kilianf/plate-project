@@ -1,0 +1,299 @@
+@import "../../node_modules/purecss/build/base-min.css";
+@import "../../node_modules/purecss/build/grids-min.css";
+@import "../../node_modules/purecss/build/grids-responsive-min.css";
+@import "../../node_modules/purecss/build/base-min.css";
+#mobile-sidebar-links {
+  margin: -20px 0 20px 0;
+}
+button#campaign-expand {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #a18552;
+  -webkit-transform: translate(-110px, 10px);
+  -moz-transform: translate(-110px, 10px);
+  -ms-transform: translate(-110px, 10px);
+  -o-transform: translate(-110px, 10px);
+  transform: translate(-110px, 10px);
+}
+button#campaign-expand:active,
+button#campaign-expand:hover,
+button#campaign-expand:focus {
+  outline: none;
+}
+#ham {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  float: left;
+  display: inline-block;
+  margin: 4px 4px -2px 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+#ham span {
+  display: inline;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #85754d;
+  border-radius: 1px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.4s ease-in-out;
+  -moz-transition: 0.4s ease-in-out;
+  -o-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+#ham span:nth-child(1) {
+  top: 0px;
+}
+#ham span:nth-child(2),
+#ham span:nth-child(3) {
+  top: 7px;
+}
+#ham span:nth-child(4) {
+  top: 14px;
+}
+.active #ham span:nth-child(1) {
+  top: 7px;
+  width: 0%;
+  left: 50%;
+}
+.active #ham span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.active #ham span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.active #ham span:nth-child(4) {
+  top: 7px;
+  width: 0%;
+  left: 50%;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "brothers";
+  color: #a18552;
+}
+p {
+  color: #b1b1b1;
+}
+body {
+  background-color: #1b1b1b;
+  background-image: url(../img/opener-desktop.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+body,
+html {
+  height: 100%;
+}
+.sidebarMenu {
+  width: 20%;
+  min-width: 260px;
+  position: fixed;
+  padding: 20px 40px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: #2d2d2d;
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.sidebarMenu.active {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+.xMark {
+  font-family: "brothers";
+  color: #a18552;
+  position: relative;
+}
+.xMark:before,
+.xMark:after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 15px;
+  background-color: white;
+  position: absolute;
+  top: 59%;
+  -webkit-transform: translate(-50%);
+  -moz-transform: translate(-50%);
+  -ms-transform: translate(-50%);
+  -o-transform: translate(-50%);
+  transform: translate(-50%);
+  right: 14px;
+}
+.xMark:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.xMark:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.signOut {
+  font-size: 13px;
+  color: #b1b1b1;
+  padding-top: 30px;
+}
+thead > tr > th:first-child {
+  font-family: "brothers" !important;
+  color: #a18552 !important;
+  text-transform: uppercase;
+  font-size: 20px !important;
+}
+thead > tr th {
+  font-family: "brothers" !important;
+  color: #a18552 !important;
+}
+.A {
+  padding: 10px 80px 50px 80px;
+}
+.A h2 {
+  text-align: center;
+}
+.cycleSelect > div {
+  margin: 0 auto;
+}
+.modal {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  min-height: 180px;
+  padding: 20px 40px;
+  border: 1px solid #a18552;
+  outline: 20px solid black;
+  background-color: #010101;
+  top: 50%;
+  bottom: 50%;
+  text-align: center;
+  opacity: 0;
+  z-index: 0;
+  width: 250px;
+  -webkit-transition: all 0.2s linear 0s;
+  -moz-transition: all 0.2s linear 0s;
+  -o-transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s;
+}
+.modal a {
+  font-family: "brothers";
+  color: #a18552;
+  margin-top: 20px;
+  display: inline-block;
+  text-decoration: none;
+  outline: none;
+}
+.modal a:before,
+.modal a:after {
+  display: none !important;
+}
+.modal a:active,
+.modal a:focus,
+.modal a:hover {
+  color: white;
+}
+.active .modal {
+  opacity: 1;
+  z-index: 1;
+}
+.login {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+.login a {
+  font-family: "brothers";
+  color: #a18552;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  margin: 20px 0 0;
+  font-size: 20px;
+  padding: 4px 0;
+  cursor: pointer;
+}
+.login a:before,
+.login a:after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 1px;
+  background-color: white;
+  position: absolute;
+  top: 1px;
+  -webkit-transform: translate(50%);
+  -moz-transform: translate(50%);
+  -ms-transform: translate(50%);
+  -o-transform: translate(50%);
+  transform: translate(50%);
+  right: 50%;
+}
+.login a:after {
+  top: auto;
+  bottom: -1px;
+}
+.login:before {
+  pointer-events: none;
+  border: 1px solid #a18552;
+  position: absolute;
+  content: '';
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+}
+.login img {
+  min-width: 20%;
+}
