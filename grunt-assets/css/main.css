@@ -195,11 +195,11 @@ thead > tr th {
   -moz-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
-  -webkit-transform-origin: 25% 50%;
-  -moz-transform-origin: 25% 50%;
-  -ms-transform-origin: 25% 50%;
-  -o-transform-origin: 25% 50%;
-  transform-origin: 25% 50%;
+  -webkit-transform-origin: 18% 50%;
+  -moz-transform-origin: 18% 50%;
+  -ms-transform-origin: 18% 50%;
+  -o-transform-origin: 18% 50%;
+  transform-origin: 18% 50%;
 }
 .App.activeColor td {
   color: #a18552;
@@ -274,6 +274,10 @@ thead > tr th {
   -moz-transition: all 0.2s linear 0s;
   -o-transition: all 0.2s linear 0s;
   transition: all 0.2s linear 0s;
+}
+.modal p {
+  font-size: 13px;
+  margin: 0 0 -10px;
 }
 .modal a {
   font-family: "brothers";
