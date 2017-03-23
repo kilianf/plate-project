@@ -36,18 +36,16 @@ class Currentstats extends Component {
       this.currentDB.once("value")
         .then((snapshot) => {
           const stats = snapshot.child(this.userID + "/currentstats");
-          console.log(stats.val())
           this.setState({ 
-            bench: stats.child('bench').val() || 0,
-            deadlift: stats.child('deadlift').val() || 0,
-            press: stats.child('press').val() || 0,
-            squat: stats.child('squat').val() || 0,
-            benchReps: stats.child('benchReps').val() || 0,
-            deadliftReps: stats.child('deadliftReps').val() || 0,
-            pressReps: stats.child('pressReps').val() || 0,
-            squatReps: stats.child('squatReps').val() || 0
+            bench: stats.child('bench').val(),
+            deadlift: stats.child('deadlift').val(),
+            press: stats.child('press').val(),
+            squat: stats.child('squat').val(),
+            benchReps: stats.child('benchReps').val(),
+            deadliftReps: stats.child('deadliftReps').val(),
+            pressReps: stats.child('pressReps').val(),
+            squatReps: stats.child('squatReps').val()
           })
-          console.log(stats.val())
           this.updateNumbers(this.state)
         });
   }
@@ -74,10 +72,10 @@ class Currentstats extends Component {
   render() {
     return (
       <div className="numbers" onKeyPress={this.handleKeyPress} >
-        <h2>Numbers:</h2>
+        <h2>Current numbers:</h2>
 
         <div className="pure-g">
-          <div className="pure-u-1 pure-u-md-2-3 xMark">
+          <div className="pure-u-2-3 xMark">
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                      <TextField             
                     hintText={`${this.state.bench} lbs`}
@@ -89,7 +87,7 @@ class Currentstats extends Component {
                    />
             </MuiThemeProvider>   
           </div>
-          <div className="pure-u-1 pure-u-md-1-3">
+          <div className="pure-u-1-3">
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                  <TextField
                 hintText={`${this.state.benchReps} reps`}
@@ -104,7 +102,7 @@ class Currentstats extends Component {
         </div>
 
         <div className="pure-g">
-          <div className="pure-u-1 pure-u-md-2-3 xMark">
+          <div className="pure-u-2-3 xMark">
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                      <TextField             
                     hintText={`${this.state.deadlift} lbs`}
@@ -116,7 +114,7 @@ class Currentstats extends Component {
                    />
             </MuiThemeProvider>   
           </div>
-          <div className="pure-u-1 pure-u-md-1-3">
+          <div className="pure-u-1-3">
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                  <TextField
                 hintText={`${this.state.deadliftReps} reps`}
@@ -131,7 +129,7 @@ class Currentstats extends Component {
         </div>
 
         <div className="pure-g">
-          <div className="pure-u-1 pure-u-md-2-3 xMark">
+          <div className="pure-u-2-3 xMark">
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                      <TextField             
                     hintText={`${this.state.press} lbs`}
@@ -143,7 +141,7 @@ class Currentstats extends Component {
                    />
             </MuiThemeProvider>   
           </div>
-          <div className="pure-u-1 pure-u-md-1-3">
+          <div className="pure-u-1-3">
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                  <TextField
                 hintText={`${this.state.pressReps} reps`}
@@ -158,7 +156,7 @@ class Currentstats extends Component {
         </div>
 
         <div className="pure-g">
-          <div className="pure-u-1 pure-u-md-2-3 xMark">
+          <div className="pure-u-2-3 xMark">
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                      <TextField             
                     hintText={`${this.state.squat} lbs`}
@@ -170,7 +168,7 @@ class Currentstats extends Component {
                    />
             </MuiThemeProvider>   
           </div>
-          <div className="pure-u-1 pure-u-md-1-3">
+          <div className="pure-u-1-3">
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                  <TextField
                 hintText={`${this.state.squatReps} reps`}
@@ -183,14 +181,17 @@ class Currentstats extends Component {
             </MuiThemeProvider>          
           </div>
         </div>
-    
-        <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-           <RaisedButton 
-             backgroundColor={'#a18552'}
-             label="Save" onClick={()=>{ this._clicker() }}
-           />
-        </MuiThemeProvider> 
-
+        
+        <div className="pure-g">
+          <div className="pure-u-2-3">
+               <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+                  <RaisedButton 
+                    backgroundColor={'#a18552'}
+                    label="Save" onClick={()=>{ this._clicker() }}
+                  />
+               </MuiThemeProvider> 
+          </div>
+        </div>
 
       </div>
     );

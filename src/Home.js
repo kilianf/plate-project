@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import Login from './Login'
 import Program from './Program'
 import Currentstats from './Currentstats'
+import Profilepopup from './Profilepopup'
 import Selectprogram from './Selectprogram'
 import Typekit from 'react-typekit';
 import Isvg from 'react-inlinesvg';
+import ActionFlightTakeoff from 'material-ui/svg-icons/action/flight-takeoff';
 
 
 import logo from './logo.svg';
+import profileIcon from './profile.svg';
 import './App.css';
 
 class Home extends Component {
@@ -31,6 +34,7 @@ class Home extends Component {
       isLoaded: false,
       grow: false,
       modal: false,
+      profileOpen: false,
     }
     this.programs = [
       "5x3x1",
@@ -54,7 +58,6 @@ class Home extends Component {
           loggedin: true, 
           uid: user.uid
         })
-        
       } else {
         this.setState({ loggedin: false })
       }
@@ -77,6 +80,7 @@ class Home extends Component {
   }
   
   openModal = () => {
+    console.log('fired')
     this.setState({modal: !this.state.modal})
   }
   
@@ -90,11 +94,17 @@ class Home extends Component {
 
 
 
+  profile(){
+    {/* Log out of app */}
+    
+  }
+
+
   _logOut(){
     {/* Log out of app */}
     this.fire.auth().signOut();
-    this.toggleMenu();
     this.openModal();
+    this.toggleMenu();
   }
 
   hamburgerButton(){
@@ -115,35 +125,49 @@ class Home extends Component {
     this.setState({menuOpen: !this.state.menuOpen})
   }
 
+  profileAdder = () => {
+    this.setState({profileOpen: !this.state.profileOpen})
+  }
+
   render() {
     const isActive = this.state.menuOpen ? 'activeMenu' : '';
     const grow = this.state.grow ? 'grow' : '';
     const modal = this.state.modal ? 'modalFade' : '';
+    const profile = this.state.profileOpen ? 'profileOpen' : '';
 
     {/* Flashes a brief text update */}
     const flashText = this.state.flash ? 'activeColor' : '';
 
     return (
 
-      <div className={`${flashText} ${isActive} ${grow} ${modal} App`}>
+      <div className={`App ${flashText} ${isActive} ${grow} ${modal} ${profile}`}>
         
+
         <div className="loader"></div>
 
         <div className="App-header">
         </div>
+
+        {/* Toggle sidebar */}
+        { this.state.loggedin && this.hamburgerButton() }      
+
         <div className="sidebarMenu">
-            
-            {/* Toggle sidebar */}
-            { this.state.loggedin && this.hamburgerButton() }
 
             {/* Check if logged in // if so, Load select progrom component */}
             { this.state.loggedin && <Selectprogram fire={this.props.fire} user={this.state.uid} setProgramStatus={this.setProgramStatus} /> }
 
             {/* Check if logged in // if so, enter stats if not entered */}
             { this.state.loggedin && <Currentstats fire={this.props.fire} user={this.state.uid} setCurrentNumbers={this.setCurrentNumbers}/> }
-            
+
+            {/* Edit profile */}
+            <div className="actionButton" onClick={()=>{ this.profileAdder() }}><p><span>Edit profile</span><Isvg src={profileIcon} /></p></div>
+
             {/* Log out of app */}
-            <div className="signOut" onClick={()=>{ this._logOut() }}><p>Sign out</p></div>
+            <div className="actionButton" onClick={()=>{ this._logOut() }}><p>Sign out</p></div>
+            
+            <div className="profile pure-g">
+              { this.state.profileOpen && <Profilepopup fire={this.props.fire} user={this.state.uid}  profileAdder={ this.profileAdder } /> }
+            </div>
 
         </div>
 

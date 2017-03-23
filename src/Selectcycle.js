@@ -29,25 +29,21 @@ class Selectcycle extends Component {
   }
 
   componentWillMount(){
-      this.currentDB.once("value")
-        .then((snapshot) => {
-          const stats = snapshot.child(this.props.user + "/cycle");
-          this.setState({ value: stats.val() })
-        });
+    this.currentDB.once("value")
+      .then((snapshot) => {
+        const stats = snapshot.child(this.props.user + "/cycle");
+        this.setState({ value: stats.val() })
+      });
   }
-
 
   handleChange = (event, index, value) => {
     this.setState({value}, this.updateDB);
-    this.props.setParentCycleState(this.state.value)
+    this.props.setParentCycleState(value)
   }
-
 
   updateDB(){
     this.currentDB.child(this.props.user + "/cycle").set(this.state.value);
   }
-
-
 
   render() {
     return (

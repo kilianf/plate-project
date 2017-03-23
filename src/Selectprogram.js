@@ -49,7 +49,7 @@ class Selectprogram extends Component {
     return (
       <div className="program">
         <div className="App-header">
-          <h2>Select your program</h2>
+          <h2>Your program</h2>
 
           <MuiThemeProvider muiTheme={getMuiTheme(goldTheme)}>
             <SelectField

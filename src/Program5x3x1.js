@@ -25,13 +25,13 @@ class Program5x3x1 extends Component {
     this.state = {
       hasProgram: false,
       program: '',
-      cycle: 2
+      cycle: 1
     }
   }
 
   calculateMax(weight,reps,exercise){
-    if(this.state.cycle > 0) {
-      return Math.round( weight / (1.0278-(0.0278*reps ))) + ((this.increments[exercise] * this.state.cycle)  / 0.9 )
+    if(this.state.cycle > 1) {
+      return Math.round( weight / (1.0278-(0.0278*reps ))) + ((this.increments[exercise] * (this.state.cycle - 1))  / 0.9 )
     }
     return Math.round( weight / (1.0278-(0.0278*reps )))
   }
@@ -41,7 +41,6 @@ class Program5x3x1 extends Component {
   }
 
   render() {
-
     const indexer = Object.keys(this.props.currentstats)
 
     for(var i in this.props.currentstats) {

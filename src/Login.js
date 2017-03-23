@@ -94,10 +94,7 @@ class Login extends Component {
     return (
       <div className="login">
         
-        <Isvg src={logo}>
-          Here's some optional content for browsers that don't support XHR or inline
-          SVGs. You can use other React components here too. Here, I'll show you.
-        </Isvg>   
+        <Isvg src={logo} />  
         
         <a onClick={()=>{ this.toggleModal()}}  onMouseEnter={ this.props.border } onMouseLeave={ this.props.border } >Login</a>
 

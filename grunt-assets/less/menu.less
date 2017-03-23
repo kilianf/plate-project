@@ -17,20 +17,25 @@ button#campaign-expand {
   border: none;
   cursor: pointer;
   color: @gold;
+  position: fixed;
+  z-index: 11;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
   &:active,
   &:hover,
   &:focus {
     outline: none;
   }
   @media @phone-only { 
-    .translate(-95px, -5px);
+    // .translate(-95px, -5px);
     background-color: #1b1b1b;
     .activeMenu & {
-      .translate(0, -5px);
+    //  .translate(0, -5px);
     }
   }              //  (max-width: 599px)          
   @media @tablet-portrait-up { 
-    .translate(-110px, 10px);
+    // .translate(-110px, 10px);
   }      //  (min-width: 600px) 
   // @media @tablet-portait-only { }     //  (min-width: 600px) and (max-width: 899px) 
   // @media @tablet-landscape-up { }     //  (min-width: 900px)
