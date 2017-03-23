@@ -32,20 +32,22 @@ class Currentstats extends Component {
     this.props.setCurrentNumbers(value)
   }
 
-  componentWillMount(){
+  componentDidMount(){
       this.currentDB.once("value")
         .then((snapshot) => {
           const stats = snapshot.child(this.userID + "/currentstats");
+          console.log(stats.val())
           this.setState({ 
-            bench: stats.child('bench').val(),
-            deadlift: stats.child('deadlift').val(),
-            press: stats.child('press').val(),
-            squat: stats.child('squat').val(),
-            benchReps: stats.child('benchReps').val(),
-            deadliftReps: stats.child('deadliftReps').val(),
-            pressReps: stats.child('pressReps').val(),
-            squatReps: stats.child('squatReps').val()
+            bench: stats.child('bench').val() || 0,
+            deadlift: stats.child('deadlift').val() || 0,
+            press: stats.child('press').val() || 0,
+            squat: stats.child('squat').val() || 0,
+            benchReps: stats.child('benchReps').val() || 0,
+            deadliftReps: stats.child('deadliftReps').val() || 0,
+            pressReps: stats.child('pressReps').val() || 0,
+            squatReps: stats.child('squatReps').val() || 0
           })
+          console.log(stats.val())
           this.updateNumbers(this.state)
         });
   }

@@ -18,7 +18,15 @@ class Home extends Component {
       hasProgram: false,
       loggedin: false,
       uid: '',
-      currentstats: {},
+      currentstats: {
+        bench: 0,
+        benchReps: 0,
+        deadlift: 0,
+        deadliftReps: 0,
+        press: 0,
+        pressReps: 0,
+        squat: 0,
+      },
       flash: false,
       isLoaded: false,
       grow: false,
@@ -76,7 +84,7 @@ class Home extends Component {
     {/* Tell state user has selected program // Passed as prop to  Selectprogram component */}
 
     this.setState({ currentstats: value, flash: true }, () => {
-      setTimeout(() => this.setState({ flash: false  }), 200)
+      setTimeout(() => this.setState({ flash: false  }), 500)
     })
   }
 
@@ -86,6 +94,7 @@ class Home extends Component {
     {/* Log out of app */}
     this.fire.auth().signOut();
     this.toggleMenu();
+    this.openModal();
   }
 
   hamburgerButton(){
@@ -101,18 +110,10 @@ class Home extends Component {
     )
   }
 
-  loader(){
-    return (
-      <div className="loader"></div>
-    )
-  }
-
   toggleMenu(){
     {/* Toggle sidebar */}
     this.setState({menuOpen: !this.state.menuOpen})
   }
-
-
 
   render() {
     const isActive = this.state.menuOpen ? 'activeMenu' : '';
@@ -126,17 +127,14 @@ class Home extends Component {
 
       <div className={`${flashText} ${isActive} ${grow} ${modal} App`}>
         
-             <div className="loader">
-      </div>
+        <div className="loader"></div>
 
         <div className="App-header">
         </div>
         <div className="sidebarMenu">
             
             {/* Toggle sidebar */}
-
             { this.state.loggedin && this.hamburgerButton() }
-
 
             {/* Check if logged in // if so, Load select progrom component */}
             { this.state.loggedin && <Selectprogram fire={this.props.fire} user={this.state.uid} setProgramStatus={this.setProgramStatus} /> }

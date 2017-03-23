@@ -23,6 +23,7 @@ button#campaign-expand:focus {
     -ms-transform: translate(-95px, -5px);
     -o-transform: translate(-95px, -5px);
     transform: translate(-95px, -5px);
+    background-color: #1b1b1b;
   }
   .activeMenu button#campaign-expand {
     -webkit-transform: translate(0, -5px);
@@ -47,7 +48,7 @@ button#campaign-expand:focus {
   position: relative;
   float: left;
   display: inline-block;
-  margin: 4px 4px -2px 0;
+  margin: 7px 0 -2px 0;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
@@ -262,24 +263,37 @@ html {
   background: #191919;
   cursor: pointer;
 }
-.App td {
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-  -webkit-transform-origin: 18% 50%;
-  -moz-transform-origin: 18% 50%;
-  -ms-transform-origin: 18% 50%;
-  -o-transform-origin: 18% 50%;
-  transform-origin: 18% 50%;
+@keyframes bgtrans {
+  0% {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    background-color: rgba(27, 27, 27, 0);
+  }
 }
-.App.activeColor td {
-  color: #a18552;
-  -webkit-transform: scale(1.5);
-  -moz-transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  -o-transform: scale(1.5);
-  transform: scale(1.5);
+.App.activeColor tbody tr:nth-child(1) {
+  -webkit-animation: bgtrans 0.3s 0s 1 ease-in-out forwards;
+  -moz-animation: bgtrans 0.3s 0s 1 ease-in-out forwards;
+  -o-animation: bgtrans 0.3s 0s 1 ease-in-out forwards;
+  animation: bgtrans 0.3s 0s 1 ease-in-out forwards;
+}
+.App.activeColor tbody tr:nth-child(2) {
+  -webkit-animation: bgtrans 0.3s 0.1s 1 ease-in-out forwards;
+  -moz-animation: bgtrans 0.3s 0.1s 1 ease-in-out forwards;
+  -o-animation: bgtrans 0.3s 0.1s 1 ease-in-out forwards;
+  animation: bgtrans 0.3s 0.1s 1 ease-in-out forwards;
+}
+.App.activeColor tbody tr:nth-child(3) {
+  -webkit-animation: bgtrans 0.3s 0.2s 1 ease-in-out forwards;
+  -moz-animation: bgtrans 0.3s 0.2s 1 ease-in-out forwards;
+  -o-animation: bgtrans 0.3s 0.2s 1 ease-in-out forwards;
+  animation: bgtrans 0.3s 0.2s 1 ease-in-out forwards;
+}
+.App.activeColor tbody tr:nth-child(4) {
+  -webkit-animation: bgtrans 0.3s 0.3s 1 ease-in-out forwards;
+  -moz-animation: bgtrans 0.3s 0.3s 1 ease-in-out forwards;
+  -o-animation: bgtrans 0.3s 0.3s 1 ease-in-out forwards;
+  animation: bgtrans 0.3s 0.3s 1 ease-in-out forwards;
 }
 .activeMenu > .A {
   -webkit-transform: translateX(-30px);
