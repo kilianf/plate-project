@@ -4,6 +4,7 @@ import Program from './Program'
 import Currentstats from './Currentstats'
 import Selectprogram from './Selectprogram'
 import Typekit from 'react-typekit';
+import Isvg from 'react-inlinesvg';
 
 
 import logo from './logo.svg';
@@ -18,7 +19,10 @@ class Home extends Component {
       loggedin: false,
       uid: '',
       currentstats: {},
-      flash: false
+      flash: false,
+      isLoaded: false,
+      grow: false,
+      modal: false,
     }
     this.programs = [
       "5x3x1",
@@ -27,6 +31,13 @@ class Home extends Component {
       "PHUL"
     ]
   }
+
+  componentDidMount(){
+    setTimeout(()=>{
+      this.setState({ isLoaded: true})
+    }, 2000);
+  }
+
   componentWillMount(){
     this.fire.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -52,6 +63,14 @@ class Home extends Component {
     {/* Tell state user has selected program // Passed as prop to  Selectprogram component */}
     this.setState({ hasProgram: value })
   }
+
+  largerBorder = () => {
+    this.setState({grow: !this.state.grow})
+  }
+  
+  openModal = () => {
+    this.setState({modal: !this.state.modal})
+  }
   
   setCurrentNumbers = (value) => {
     {/* Tell state user has selected program // Passed as prop to  Selectprogram component */}
@@ -60,6 +79,7 @@ class Home extends Component {
       setTimeout(() => this.setState({ flash: false  }), 200)
     })
   }
+
 
 
   _logOut(){
@@ -81,19 +101,34 @@ class Home extends Component {
     )
   }
 
+  loader(){
+    return (
+      <div className="loader"></div>
+    )
+  }
+
   toggleMenu(){
     {/* Toggle sidebar */}
     this.setState({menuOpen: !this.state.menuOpen})
   }
 
+
+
   render() {
     const isActive = this.state.menuOpen ? 'activeMenu' : '';
+    const grow = this.state.grow ? 'grow' : '';
+    const modal = this.state.modal ? 'modalFade' : '';
 
     {/* Flashes a brief text update */}
     const flashText = this.state.flash ? 'activeColor' : '';
 
     return (
-      <div className={`${flashText} ${isActive} App`}>
+
+      <div className={`${flashText} ${isActive} ${grow} ${modal} App`}>
+        
+             <div className="loader">
+      </div>
+
         <div className="App-header">
         </div>
         <div className="sidebarMenu">
@@ -115,7 +150,7 @@ class Home extends Component {
         </div>
 
         {/*Check if logged in */}
-        { !this.state.loggedin && <Login fire={this.props.fire} />   }
+        { !this.state.loggedin && <Login fire={this.props.fire} border={ this.largerBorder }  openModal={ this.openModal } />   }
         
         {/* Select program if not selected */}
         { this.state.loggedin && <Program fire={this.props.fire} user={this.state.uid} currentstats={this.state.currentstats} /> }

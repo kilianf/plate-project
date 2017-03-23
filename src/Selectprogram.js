@@ -13,12 +13,8 @@ let goldTheme = Object.create(darkBaseTheme);
 goldTheme.palette.accent1Color = "#a18552"
 
 {/*
-
   Component lets user select program and add it to their prefs in Firebase
-
 */}
-
-
 
 
 class Selectprogram extends Component {
@@ -61,10 +57,10 @@ class Selectprogram extends Component {
               value={this.state.value}
               onChange={ this.handleChange }
             >
-              <MenuItem value={"Texas"} primaryText="Texas" />
               <MenuItem value={"5x3x1"} primaryText="5x3x1" />
               <MenuItem value={"Mad Cow"} primaryText="Mad Cow" />
-              <MenuItem value={"PHUL"} primaryText="PHUL" />
+              <MenuItem disabled={true} value={"Texas"} primaryText="Texas" />
+              <MenuItem disabled={true} value={"PHUL"} primaryText="PHUL" />
             </SelectField>
           </MuiThemeProvider>          
         </div>

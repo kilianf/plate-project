@@ -10,16 +10,36 @@ button#campaign-expand {
   border: none;
   cursor: pointer;
   color: #a18552;
-  -webkit-transform: translate(-110px, 10px);
-  -moz-transform: translate(-110px, 10px);
-  -ms-transform: translate(-110px, 10px);
-  -o-transform: translate(-110px, 10px);
-  transform: translate(-110px, 10px);
 }
 button#campaign-expand:active,
 button#campaign-expand:hover,
 button#campaign-expand:focus {
   outline: none;
+}
+@media (max-width: 599px) {
+  button#campaign-expand {
+    -webkit-transform: translate(-95px, -5px);
+    -moz-transform: translate(-95px, -5px);
+    -ms-transform: translate(-95px, -5px);
+    -o-transform: translate(-95px, -5px);
+    transform: translate(-95px, -5px);
+  }
+  .activeMenu button#campaign-expand {
+    -webkit-transform: translate(0, -5px);
+    -moz-transform: translate(0, -5px);
+    -ms-transform: translate(0, -5px);
+    -o-transform: translate(0, -5px);
+    transform: translate(0, -5px);
+  }
+}
+@media (min-width: 600px) {
+  button#campaign-expand {
+    -webkit-transform: translate(-110px, 10px);
+    -moz-transform: translate(-110px, 10px);
+    -ms-transform: translate(-110px, 10px);
+    -o-transform: translate(-110px, 10px);
+    transform: translate(-110px, 10px);
+  }
 }
 #ham {
   width: 25px;
@@ -68,26 +88,26 @@ button#campaign-expand:focus {
 #ham span:nth-child(4) {
   top: 14px;
 }
-.active #ham span:nth-child(1) {
+.activeMenu #ham span:nth-child(1) {
   top: 7px;
   width: 0%;
   left: 50%;
 }
-.active #ham span:nth-child(2) {
+.activeMenu #ham span:nth-child(2) {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-.active #ham span:nth-child(3) {
+.activeMenu #ham span:nth-child(3) {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-.active #ham span:nth-child(4) {
+.activeMenu #ham span:nth-child(4) {
   top: 7px;
   width: 0%;
   left: 50%;
@@ -104,17 +124,56 @@ p {
 }
 body {
   background-color: #1b1b1b;
-  background-image: url(../img/opener-desktop.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+  background-position: right center;
+}
+@media (max-width: 599px) {
+  body {
+    background-image: url(../img/opener-desktop-mobile.jpg);
+  }
+}
+@media (min-width: 600px) {
+  body {
+    background-image: url(../img/opener-desktop.jpg);
+  }
 }
 body,
 html {
   height: 100%;
 }
+@keyframes intro {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.loader {
+  position: absolute;
+  height: 100vh;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  background-color: black;
+  z-index: 10;
+  -webkit-animation: intro 2s 0.2s 1 linear forwards;
+  -moz-animation: intro 2s 0.2s 1 linear forwards;
+  -o-animation: intro 2s 0.2s 1 linear forwards;
+  animation: intro 2s 0.2s 1 linear forwards;
+  pointer-events: none;
+}
+.loader svg {
+  min-width: 300px;
+  height: auto;
+  margin-bottom: 60px;
+}
 .sidebarMenu {
-  width: 20%;
   min-width: 260px;
   position: fixed;
   padding: 20px 40px;
@@ -139,6 +198,21 @@ html {
   -ms-transform: translateX(0);
   -o-transform: translateX(0);
   transform: translateX(0);
+}
+@media (max-width: 599px) {
+  .sidebarMenu {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+  .sidebarMenu .numbers .pure-g {
+    padding: 0;
+  }
+}
+@media (min-width: 600px) {
+  .sidebarMenu {
+    width: 20%;
+  }
 }
 .xMark {
   font-family: "brothers";
@@ -180,15 +254,13 @@ html {
   color: #b1b1b1;
   padding-top: 30px;
 }
-thead > tr > th:first-child {
-  font-family: "brothers" !important;
-  color: #a18552 !important;
-  text-transform: uppercase;
-  font-size: 20px !important;
-}
-thead > tr th {
-  font-family: "brothers" !important;
-  color: #a18552 !important;
+.signOut p {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 2px;
+  opacity: .6;
+  background: #191919;
+  cursor: pointer;
 }
 .App td {
   -webkit-transition: all 0.2s linear;
@@ -217,15 +289,23 @@ thead > tr th {
   transform: translateX(-30px);
 }
 .A {
-  padding: 10px 80px 50px 80px;
   -webkit-transition: -webkit-transform 0.2s linear;
   -moz-transition: -moz-transform 0.2s linear;
   -o-transition: -o-transform 0.2s linear;
   transition: -webkit-transform 0.2s linear,-moz-transform 0.2s linear,-o-transform 0.2s linear,transform 0.2s linear;
 }
+.A thead > tr > th:first-child {
+  font-family: "brothers" !important;
+  color: #a18552 !important;
+  text-transform: uppercase;
+}
+.A thead > tr th {
+  font-family: "brothers" !important;
+  color: #a18552 !important;
+}
 .A h2 {
   text-align: center;
-  font-size: 4em;
+  font-size: 2em;
   margin-bottom: 0;
   position: relative;
 }
@@ -249,8 +329,38 @@ thead > tr th {
   top: auto;
   bottom: -1px;
 }
+@media (max-width: 599px) {
+  .A tbody tr td:first-child {
+    overflow: visible !important;
+  }
+  .A thead > tr > th:first-child {
+    white-space: normal !important;
+    line-height: 1.1 !important;
+  }
+}
+@media (min-width: 600px) {
+  .A {
+    padding: 10px 80px 50px 80px;
+  }
+  .A thead > tr > th:first-child {
+    font-size: 20px !important;
+  }
+  .A h2 {
+    font-size: 4em;
+  }
+}
 .cycleSelect > div {
-  margin: 0 auto  40px auto;
+  margin: 0 auto  10px auto;
+}
+@media (max-width: 599px) {
+  .cycleSelect {
+    padding: 0 20px;
+  }
+}
+@media (min-width: 600px) {
+  .cycleSelect {
+    margin: 0 auto  40px auto;
+  }
 }
 .modal {
   position: absolute;
@@ -310,6 +420,46 @@ thead > tr th {
   justify-content: center;
   width: 100vw;
 }
+.login svg {
+  -webkit-transition: opacity 0.5s linear;
+  -moz-transition: opacity 0.5s linear;
+  -o-transition: opacity 0.5s linear;
+  transition: opacity 0.5s linear;
+}
+.login svg g g {
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.grow .login svg g:nth-child(3) g:nth-child(1) {
+  -webkit-transform: translate(25%, -25%);
+  -moz-transform: translate(25%, -25%);
+  -ms-transform: translate(25%, -25%);
+  -o-transform: translate(25%, -25%);
+  transform: translate(25%, -25%);
+}
+.grow .login svg g:nth-child(3) g:nth-child(2) {
+  -webkit-transform: translate(-25%, -25%);
+  -moz-transform: translate(-25%, -25%);
+  -ms-transform: translate(-25%, -25%);
+  -o-transform: translate(-25%, -25%);
+  transform: translate(-25%, -25%);
+}
+.grow .login svg g:nth-child(3) g:nth-child(3) {
+  -webkit-transform: translate(25%, 25%);
+  -moz-transform: translate(25%, 25%);
+  -ms-transform: translate(25%, 25%);
+  -o-transform: translate(25%, 25%);
+  transform: translate(25%, 25%);
+}
+.grow .login svg g:nth-child(3) g:nth-child(4) {
+  -webkit-transform: translate(-25%, 25%);
+  -moz-transform: translate(-25%, 25%);
+  -ms-transform: translate(-25%, 25%);
+  -o-transform: translate(-25%, 25%);
+  transform: translate(-25%, 25%);
+}
 .login a {
   font-family: "brothers";
   color: #a18552;
@@ -320,6 +470,15 @@ thead > tr th {
   font-size: 20px;
   padding: 4px 0;
   cursor: pointer;
+  -webkit-transition: opacity 0.5s linear;
+  -moz-transition: opacity 0.5s linear;
+  -o-transition: opacity 0.5s linear;
+  transition: opacity 0.5s linear;
+}
+.login a:hover,
+.login a:active,
+.login a:focus {
+  color: white;
 }
 .login a:before,
 .login a:after {
@@ -344,6 +503,11 @@ thead > tr th {
 .login:before {
   pointer-events: none;
   border: 1px solid #a18552;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  opacity: 1;
   position: absolute;
   content: '';
   top: 20px;
@@ -351,6 +515,19 @@ thead > tr th {
   right: 20px;
   bottom: 20px;
 }
-.login img {
-  min-width: 20%;
+.login svg {
+  min-width: 300px;
+  height: auto;
+}
+.modalFade .login > svg,
+.modalFade .login > a {
+  opacity: 0;
+}
+@media (max-width: 599px) {
+  .login svg {
+    min-width: 180px;
+    min-width: 300px;
+    width: 200px;
+    min-height: 120px;
+  }
 }

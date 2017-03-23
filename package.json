@@ -19,6 +19,7 @@
     "react": "^15.4.2",
     "react-addons-update": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-inlinesvg": "^0.5.5",
     "react-router": "^4.0.0",
     "react-tap-event-plugin": "^2.0.1",
     "react-typekit": "^1.0.6"

@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
+import Isvg from 'react-inlinesvg';
 import logo from './logo.svg';
 
 class Login extends Component {
@@ -59,8 +59,6 @@ class Login extends Component {
       } else {
         this.setState({errorPassword: error.message})
       }
-
-      console.log(error)
     });
   }
 
@@ -72,6 +70,7 @@ class Login extends Component {
   toggleModal(){
     {/* Toggle sidebar */}
     this.setState({modalActive: !this.state.modalActive})
+    this.props.openModal();
   }
 
   handleChange(event,typeOfField){
@@ -95,9 +94,12 @@ class Login extends Component {
     return (
       <div className="login">
         
-        <img src={logo} />
+        <Isvg src={logo}>
+          Here's some optional content for browsers that don't support XHR or inline
+          SVGs. You can use other React components here too. Here, I'll show you.
+        </Isvg>   
         
-        <a onClick={()=>{ this.toggleModal() }}>Login</a>
+        <a onClick={()=>{ this.toggleModal()}}  onMouseEnter={ this.props.border } onMouseLeave={ this.props.border } >Login</a>
 
         <div className={`${activeModal} loginModal`}>
           { !this.state.loggedIn && this.loadForm() }

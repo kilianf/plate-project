@@ -1,4 +1,13 @@
 
+// @media @phone-only { }              //  (max-width: 599px)          
+// @media @tablet-portrait-up { }      //  (min-width: 600px) 
+// @media @tablet-portait-only { }     //  (min-width: 600px) and (max-width: 899px) 
+// @media @tablet-landscape-up { }     //  (min-width: 900px)
+// @media @tablet-landscape-only { }   //  (min-width: 900px) and (max-width: 1199px) 
+// @media @desktop-up { }              //  (min-width: 1200px)     
+// @media @desktop-only { }            //  (min-width: 1200px) and (max-width: 1799px)"     
+// @media @big-desktop-up { }          //  (min-width: 1800px)  
+
 #mobile-sidebar-links {
       margin: -20px 0 20px 0;
 }
@@ -8,15 +17,29 @@ button#campaign-expand {
   border: none;
   cursor: pointer;
   color: @gold;
-  .translate(-110px, 10px);
   &:active,
   &:hover,
   &:focus {
     outline: none;
   }
+  @media @phone-only { 
+    .translate(-95px, -5px);
+    .activeMenu & {
+      .translate(0, -5px);
+    }
+  }              //  (max-width: 599px)          
+  @media @tablet-portrait-up { 
+    .translate(-110px, 10px);
+  }      //  (min-width: 600px) 
+  // @media @tablet-portait-only { }     //  (min-width: 600px) and (max-width: 899px) 
+  // @media @tablet-landscape-up { }     //  (min-width: 900px)
+  // @media @tablet-landscape-only { }   //  (min-width: 900px) and (max-width: 1199px) 
+  // @media @desktop-up { }              //  (min-width: 1200px)     
+  // @media @desktop-only { }            //  (min-width: 1200px) and (max-width: 1799px)"     
+  // @media @big-desktop-up { }          //  (min-width: 1800px)  
 }
     
-#ham{
+#ham {
   width: 25px;
   height: 25px;
   position: relative;
@@ -53,7 +76,7 @@ button#campaign-expand {
   top: 14px;
 }
 
-.active {
+.activeMenu {
   #ham span:nth-child(1) {
     top: 7px;
     width: 0%;

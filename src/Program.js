@@ -41,7 +41,7 @@ class Program extends Component {
       case 'Texas' :
         return <ProgramTexas currentstats={this.props.currentstats} />;
       case 'Mad Cow' :
-        return <ProgramMadCow currentstats={this.props.currentstats} />;
+        return <ProgramMadCow currentstats={this.props.currentstats} fire={this.props.fire} user={this.props.user} />;
       case 'PHUL' :
         return <ProgramPHUL currentstats={this.props.currentstats} />;  
     } 
