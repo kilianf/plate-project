@@ -63,7 +63,7 @@ class Currentstats extends Component {
   }
 
   handleKeyPress(event){
-    if(event.key == 'Enter'){
+    if(event.key==='Enter'){
       this._clicker()
     }
   }
@@ -82,7 +82,7 @@ class Currentstats extends Component {
                     floatingLabelText="Benchpress weight"
                     floatingLabelFixed={true}
                     fullWidth={false}
-                    style = {{width: '85%'}}
+                    style={{width: '85%'}}
                     onChange={ (input)=>{ this.handleChange(input, 'bench') } }
                    />
             </MuiThemeProvider>   
@@ -94,7 +94,7 @@ class Currentstats extends Component {
                 floatingLabelText="Reps"
                 floatingLabelFixed={true}
                 fullWidth={false}
-                style = {{width: 'auto'}}
+                style={{width: 'auto'}}
                 onChange={ (input)=>{ this.handleChange(input, 'benchReps') } }
                />
             </MuiThemeProvider>          
@@ -109,7 +109,7 @@ class Currentstats extends Component {
                     floatingLabelText="Deadlift weight"
                     floatingLabelFixed={true}
                     fullWidth={false}
-                    style = {{width: '85%'}}
+                    style={{width: '85%'}}
                     onChange={ (input)=>{ this.handleChange(input, 'deadlift') } }
                    />
             </MuiThemeProvider>   
@@ -121,7 +121,7 @@ class Currentstats extends Component {
                 floatingLabelText="Reps"
                 floatingLabelFixed={true}
                 fullWidth={false}
-                style = {{width: 'auto'}}
+                style={{width: 'auto'}}
                 onChange={ (input)=>{ this.handleChange(input, 'deadliftReps') } }
                />
             </MuiThemeProvider>          
@@ -136,7 +136,7 @@ class Currentstats extends Component {
                     floatingLabelText="Press weight"
                     floatingLabelFixed={true}
                     fullWidth={false}
-                    style = {{width: '85%'}}
+                    style={{width: '85%'}}
                     onChange={ (input)=>{ this.handleChange(input, 'press') } }
                    />
             </MuiThemeProvider>   
@@ -148,7 +148,7 @@ class Currentstats extends Component {
                 floatingLabelText="Reps"
                 floatingLabelFixed={true}
                 fullWidth={false}
-                style = {{width: 'auto'}}
+                style={{width: 'auto'}}
                 onChange={ (input)=>{ this.handleChange(input, 'pressReps') } }
                />
             </MuiThemeProvider>          
@@ -163,7 +163,7 @@ class Currentstats extends Component {
                     floatingLabelText="Squat weight"
                     floatingLabelFixed={true}
                     fullWidth={false}
-                    style = {{width: '85%'}}
+                    style={{width: '85%'}}
                     onChange={ (input)=>{ this.handleChange(input, 'squat') } }
                    />
             </MuiThemeProvider>   
@@ -175,7 +175,7 @@ class Currentstats extends Component {
                 floatingLabelText="Reps"
                 floatingLabelFixed={true}
                 fullWidth={false}
-                style = {{width: 'auto'}}
+                style={{width: 'auto'}}
                 onChange={ (input)=>{ this.handleChange(input, 'squatReps') } }
                />
             </MuiThemeProvider>          

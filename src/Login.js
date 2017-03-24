@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -17,9 +16,8 @@ class Login extends Component {
       errorEmail: '',
       errorPassword: ''
     }
-    
-    this.auth = this.props.fire.auth();
-    this.userID = this.uid
+    this.auth=this.props.fire.auth();
+    this.userID=this.uid
   }
 
   loadForm(){

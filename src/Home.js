@@ -6,10 +6,8 @@ import Profilepopup from './Profilepopup'
 import Selectprogram from './Selectprogram'
 import Typekit from 'react-typekit';
 import Isvg from 'react-inlinesvg';
-import ActionFlightTakeoff from 'material-ui/svg-icons/action/flight-takeoff';
 
 
-import logo from './logo.svg';
 import profileIcon from './profile.svg';
 import './App.css';
 
