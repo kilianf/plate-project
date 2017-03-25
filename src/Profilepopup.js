@@ -48,6 +48,7 @@ class Profilepopup extends Component {
       imagePreviewUrl: '',
       userID: '',
       imagePath: '',
+      uploading: false,
     };
   }
 
@@ -88,10 +89,13 @@ class Profilepopup extends Component {
       });
     }
     reader.readAsDataURL(file)
+    this.setState({loading: true})
   }
 
   render() {
     return (      
+          
+          let loading = { this.state.loading ? 'active' : '' }
 
           <div className="pure-g">
 
@@ -138,6 +142,7 @@ class Profilepopup extends Component {
                    <RaisedButton 
                      containerElement='label' 
                      backgroundColor={'#a18552'}
+                     className={this.state.loading && 'active'}
                      label="Upload" onClick={ (e)=> this._handleSubmit(e, 'before') }
                    />
                 </MuiThemeProvider> 

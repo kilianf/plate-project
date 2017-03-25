@@ -281,7 +281,7 @@ html {
 }
 @media (min-width: 600px) {
   .profile {
-    padding: 65px 20px 0;
+    padding: 65px 40px 0 20px;
   }
 }
 #campaign-expand {
@@ -307,6 +307,8 @@ html {
   opacity: .6;
   background: #191919;
   cursor: pointer;
+  font-family: Roboto, sans-serif;
+  text-transform: uppercase;
 }
 .actionButton p:active,
 .actionButton p:focus,

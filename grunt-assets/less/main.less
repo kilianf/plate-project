@@ -17,11 +17,11 @@
 
 
 @headline: "brothers";
+@roboto: Roboto, sans-serif;
 @gold: #a18552;
 @gray: #1b1b1b;
 @lightgray: #2d2d2d;
 @text: #b1b1b1;
-
 
 // @media @phone-only { }              //  (max-width: 599px)          
 // @media @tablet-portrait-up { }      //  (min-width: 600px) 
@@ -194,7 +194,7 @@ body, html {
 		padding: 65px 40px 0 20px;
 	}              //  (max-width: 599px)          
 	@media @tablet-portrait-up { 
-		padding: 65px 20px 0;
+		padding: 65px 40px 0 20px;
 	}      //  (min-width: 600px) 
 	// @media @tablet-portait-only { }     //  (min-width: 600px) and (max-width: 899px) 
 	// @media @tablet-landscape-up { }     //  (min-width: 900px)
@@ -224,6 +224,8 @@ body, html {
 		opacity: .6;
 		background: #191919;
 		cursor: pointer;
+		font-family: @roboto;
+		text-transform: uppercase;
 		&:active,
 		&:focus,
 		&:hover {
